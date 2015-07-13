@@ -1,6 +1,6 @@
 {
-    "name": "pantheon-systems/travis-scripts",
-    "description": "Use Travis to build a Drupal site with Composer, test with Behat, and then deploy to Pantheon.",
+    "name": "pantheon-systems/circle-scripts",
+    "description": "Use Circle CI to build a Drupal site with Composer, test with Behat, and then deploy to Pantheon.",
     "require": {
         "pantheon-systems/ci-scripts": "*"
     },
