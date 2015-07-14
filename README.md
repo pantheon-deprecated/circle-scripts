@@ -36,9 +36,32 @@ The custom installers in the **require** section of your composer.json file cont
 
 #### Circle CI
 
-Push-to-pantheon for Circle CI is not provided yet; the other parts of the example circle.yml file should run without modification.
+Set up your project to be tested by Circle CI:
 
-See the [Circle CI documentation](https://circleci.com/docs/getting-started) for instructions on how to set up GitHub integration, so that your code will be automatically tested on every commit.
+* Log on to https://circleci.com in your web browser.
+* Click on the "+", "Add Projects", on the left-hand menu bar.
+* Find the repository you would like to configure to test.  Navigate to the right organization, if necessary, and use the "Filter repos..." field to reduce the size of the displayed list.
+* Click "Build Project" to enable the repository and build it for the first time.
+
+Next, set up the environment variables used by the push-to-pantheon script:
+
+Variable Name | Value
+------------- | --------------------------------------------
+SITE_NAME     | The name of the site used in "Site Install"
+PSITE         | The name of the Pantheon site to push to
+PENV          | The Pantheon site environment to overwrite on each test
+PEMAIL        | The email used to log in to a Pantheon User with access to the site
+PPASS         | The password for the acount specified by PEMAIL
+
+Edit these in Project Settings > Environment Variables (https://circleci.com/gh/ORG/PROJECT/edit#env-vars).
+
+You also need to set up an ssh key, so that the push-to-pantheon script can commit changes to the Pantheon git repository.
+
+* [Create a public/private ssh key pair](https://help.github.com/articles/generating-ssh-keys/). You might want to use a different key than the one you use with GitHub.
+* [Add the public ssh key to your Pantheon account](https://pantheon.io/docs/articles/users/loading-ssh-keys/).
+* [Add the private ssh key to Circle CI](https://circleci.com/docs/permissions-and-access-during-deployment). You may either leave the "Host" field blank, or set it to "codeserver.$PENV.$PUUID.drush.in", where "$PENV" is replaced with the same value you used in the PENV environment variable, and "$PUUID" is replaced with the [UUID for your Pantheon site](https://pantheon.io/docs/articles/sites/).
+
+See the [Circle CI documentation](https://circleci.com/docs/getting-started) for more information on configuration.
 
 #### Behat
 
