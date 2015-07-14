@@ -52,6 +52,8 @@ PSITE         | The name of the Pantheon site to push to
 PENV          | The Pantheon site environment to overwrite on each test
 PEMAIL        | The email used to log in to a Pantheon User with access to the site
 PPASS         | The password for the acount specified by PEMAIL
+CI_BOT_EMAIL  | The email address to use in the git commit attribution
+CI_BOT_NAME   | The name to use in the git commit attribution
 
 Edit these in Project Settings > Environment Variables (https://circleci.com/gh/ORG/PROJECT/edit#env-vars).
 
