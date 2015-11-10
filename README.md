@@ -1,4 +1,6 @@
-## About
+This project is deprecated; it has been replaced with a newer and more comprehensive [example Drupal 7 Circle CI Composer project](https://github.com/pantheon-systems/example-drupal7-circle-composer), which can be used to quickly create your own derived project.
+
+## Original Documentation
 
 This project is designed to be included from the **require** section of a Drupal site's `composer.json` file.  Doing this allows you to achieve the following things:
 
